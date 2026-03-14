@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | SRI BALAJI HOT CHIPS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page-admin">
+  <canvas id="bg-particles"></canvas>
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Sri Balaji Hot Chips Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SRI BALAJI HOT CHIPS</span>
+          <span class="brand-tagline">FRESH | QUALITY | TASTY</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="cart.html" class="nav-link">
+          Cart
+          <span class="cart-count-badge">0</span>
+        </a>
+        <a href="admin.html" class="nav-link active">Admin Login</a>
+        <a href="checkout.html" class="nav-link nav-cta">Checkout</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-heading">
+      <div class="container">
+        <h1 data-animate="fade-up">Admin Control Panel</h1>
+        <p data-animate="fade-up" data-animate-delay="100">
+          Manage your menu items, update prices, and add new crispy snacks.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="admin-auth glass" id="admin-auth" data-animate="fade-up" data-animate-delay="200">
+          <div class="admin-auth-inner">
+            <div>
+              <h3>Admin Login</h3>
+              <p class="admin-note">Enter username and password to manage products.</p>
+            </div>
+            <form id="admin-login-form" class="admin-login-form">
+              <div class="field">
+                <label for="admin-username">Username</label>
+                <input type="text" id="admin-username" autocomplete="username" required />
+              </div>
+              <div class="field">
+                <label for="admin-password">Password</label>
+                <input type="password" id="admin-password" autocomplete="current-password" required />
+              </div>
+              <div class="admin-actions">
+                <button type="submit" class="btn btn-primary glow">Login</button>
+                <button type="button" class="btn btn-ghost" id="admin-logout-btn" style="display:none;">
+                  Logout
+                </button>
+              </div>
+              <div class="helper-text" id="admin-login-hint"></div>
+            </form>
+          </div>
+        </div>
+
+        <div class="admin-grid" id="admin-panel" style="display:none;">
+          <form id="admin-product-form" class="admin-form glass">
+            <div class="admin-panel-top">
+              <h3>Manage Products</h3>
+              <button type="button" class="btn btn-ghost btn-mini" id="admin-panel-logout">
+                Logout
+              </button>
+              <button type="button" class="btn btn-secondary btn-mini" id="admin-reset-defaults">
+                Reset Defaults
+              </button>
+            </div>
+            <input type="hidden" id="admin-product-id" />
+            <div class="field">
+              <label for="admin-name">Product Name</label>
+              <input type="text" id="admin-name" placeholder="Eg. Banana Chips" required />
+            </div>
+            <div class="field">
+              <label for="admin-price">Price (₹)</label>
+              <input type="number" id="admin-price" min="1" step="1" placeholder="Eg. 120" required />
+            </div>
+            <div class="field">
+              <label for="admin-image-file">Upload Product Photo</label>
+              <input type="file" id="admin-image-file" accept="image/*" class="input-file" />
+            </div>
+            <div class="field">
+              <label for="admin-image">OR Image Link (Direct Link)</label>
+              <input type="text" id="admin-image" placeholder="https://example.com/image.jpg" />
+              <div class="helper-text">Pasting a direct image link will also work!</div>
+            </div>
+            <div class="admin-actions">
+              <button type="submit" class="btn btn-primary glow" id="admin-save-btn">
+                Add Product
+              </button>
+              <button type="button" class="btn btn-ghost" id="admin-reset-btn">Reset</button>
+            </div>
+          </form>
+
+          <div class="admin-list glass">
+            <h3>Current Products</h3>
+            <p class="admin-note">
+              Click <strong>Edit</strong> to update a product or <strong>Delete</strong> to remove
+              it from the menu.
+            </p>
+            <div id="admin-product-list" class="admin-product-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>SRI BALAJI HOT CHIPS</h4>
+        <p>Fresh, quality and tasty hot chips &amp; snacks for every occasion.</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h5>Quick Links</h5>
+          <a href="products.html">Products</a>
+          <a href="cart.html">Cart</a>
+          <a href="checkout.html">Checkout</a>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <p>Phone: <a href="tel:+917667052277">+91 7667052277</a></p>
+          <p>No.1,srinivasa perumal kovil,Rajendra nagar,Keelkatalai,Chennai,Tamil Nadu 600117</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Sri Balaji Hot Chips. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

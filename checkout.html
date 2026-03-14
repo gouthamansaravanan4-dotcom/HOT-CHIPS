@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | SRI BALAJI HOT CHIPS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page-checkout">
+  <canvas id="bg-particles"></canvas>
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Sri Balaji Hot Chips Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SRI BALAJI HOT CHIPS</span>
+          <span class="brand-tagline">FRESH | QUALITY | TASTY</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="cart.html" class="nav-link">
+          Cart
+          <span class="cart-count-badge">0</span>
+        </a>
+        <a href="admin.html" class="nav-link">Admin Login</a>
+        <a href="checkout.html" class="nav-link active nav-cta">Checkout</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-heading">
+      <div class="container">
+        <h1 data-animate="fade-up">Checkout</h1>
+        <p data-animate="fade-up" data-animate-delay="100">
+          Provide your details and payment preference to place the order.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container checkout-grid">
+        <form id="checkout-form" class="glass" data-animate="fade-right">
+          <h2>Delivery Details</h2>
+          <div class="field">
+            <label for="customer-name">Customer Name</label>
+            <input type="text" id="customer-name" name="customerName" placeholder="Enter your full name" required />
+          </div>
+          <div class="field">
+            <label for="customer-phone">Phone Number</label>
+            <input type="tel" id="customer-phone" name="customerPhone" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+          <div class="field">
+            <label for="customer-address">Address</label>
+            <textarea id="customer-address" name="customerAddress" rows="4"
+              placeholder="Door no, Street, Area, City, PIN code" required></textarea>
+          </div>
+          <div class="field">
+            <label for="checkout-distance">Distance (km)</label>
+            <div class="input-row">
+              <input type="number" id="checkout-distance" name="distanceKm" min="0" step="0.1" placeholder="Eg. 3.5"
+                inputmode="decimal" required />
+              <button type="button" class="btn btn-secondary btn-mini" id="checkout-use-gps">
+                Use GPS
+              </button>
+            </div>
+            <div class="helper-text">Delivery charge: ₹10 per km (rounded up)</div>
+          </div>
+
+          <h2>Payment Method</h2>
+          <div class="payment-options">
+            <label class="radio-tile">
+              <input type="radio" name="paymentMethod" value="ONLINE" checked />
+              <span class="radio-tile-content">
+                <span class="radio-label">Online Payment</span>
+                <span class="radio-sub">UPI / Card / Netbanking</span>
+              </span>
+            </label>
+            <label class="radio-tile">
+              <input type="radio" name="paymentMethod" value="COD" />
+              <span class="radio-tile-content">
+                <span class="radio-label">Cash on Delivery</span>
+                <span class="radio-sub">Pay in cash when delivered</span>
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary glow full-width">
+            Place Order
+          </button>
+        </form>
+
+        <aside class="checkout-summary glass" data-animate="fade-left">
+          <h2>Order Summary</h2>
+          <div id="checkout-summary-items" class="summary-items">
+            <!-- Items injected by JavaScript -->
+          </div>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span>₹<span id="checkout-subtotal">0</span></span>
+          </div>
+          <div class="summary-row">
+            <span>Packaging Charge</span>
+            <span>₹<span id="checkout-packaging">0</span></span>
+          </div>
+
+          <div class="summary-row">
+            <span>Delivery Charge</span>
+            <span>₹<span id="checkout-delivery">0</span></span>
+          </div>
+          <div class="summary-row summary-total">
+            <span>Total Payable</span>
+            <span>₹<span id="checkout-total">0</span></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="payment-modal" aria-hidden="true">
+    <div class="modal glass" role="dialog" aria-modal="true" aria-labelledby="payment-title">
+      <div class="modal-header">
+        <div>
+          <h3 id="payment-title">Complete Payment</h3>
+          <p class="helper-text">This is a demo online payment screen (no real charge).</p>
+        </div>
+        <button class="modal-close" type="button" id="payment-close" aria-label="Close">
+          ✕
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="pay-methods">
+          <button class="pay-tab active" type="button" data-paytab="upi">UPI</button>
+          <button class="pay-tab" type="button" data-paytab="card">Card</button>
+          <button class="pay-tab" type="button" data-paytab="netbanking">Netbanking</button>
+        </div>
+
+        <div class="pay-panels">
+          <div class="pay-panel active" data-panel="upi">
+            <div class="field">
+              <label for="pay-upi">UPI ID</label>
+              <input id="pay-upi" type="text" placeholder="name@upi" />
+            </div>
+          </div>
+
+          <div class="pay-panel" data-panel="card">
+            <div class="field">
+              <label for="pay-card">Card Number</label>
+              <input id="pay-card" type="text" inputmode="numeric" placeholder="XXXX XXXX XXXX XXXX" />
+            </div>
+            <div class="input-row">
+              <div class="field" style="flex:1;">
+                <label for="pay-exp">Expiry</label>
+                <input id="pay-exp" type="text" placeholder="MM/YY" />
+              </div>
+              <div class="field" style="flex:1;">
+                <label for="pay-cvv">CVV</label>
+                <input id="pay-cvv" type="password" inputmode="numeric" placeholder="***" />
+              </div>
+            </div>
+          </div>
+
+          <div class="pay-panel" data-panel="netbanking">
+            <div class="field">
+              <label for="pay-bank">Select Bank</label>
+              <select id="pay-bank">
+                <option value="">Choose bank</option>
+                <option>SBI</option>
+                <option>HDFC</option>
+                <option>ICICI</option>
+                <option>Axis</option>
+                <option>Canara</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-summary">
+          <div class="summary-row">
+            <span>Amount</span>
+            <span>₹<span id="pay-amount">0</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-ghost" type="button" id="payment-cancel">Cancel</button>
+        <button class="btn btn-primary glow" type="button" id="payment-paynow">Pay Now</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>SRI BALAJI HOT CHIPS</h4>
+        <p>Fresh, quality and tasty hot chips &amp; snacks for every occasion.</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h5>Quick Links</h5>
+          <a href="products.html">Products</a>
+          <a href="cart.html">Cart</a>
+          <a href="checkout.html">Checkout</a>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <p>Phone: <a href="tel:+917667052277">+91 7667052277 </a></p>
+          <p> NO.1,SRINIVASA PERUMAL KOVIL,RAJENDRA NAGAR,KEELAKATALLAI,CHENNAI,TAMIL NADU 600117 </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Sri Balaji Hot Chips. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

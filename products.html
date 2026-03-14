@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | SRI BALAJI HOT CHIPS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page-products">
+  <canvas id="bg-particles"></canvas>
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Sri Balaji Hot Chips Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SRI BALAJI HOT CHIPS</span>
+          <span class="brand-tagline">FRESH | QUALITY | TASTY</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="cart.html" class="nav-link">
+          Cart
+          <span class="cart-count-badge">0</span>
+        </a>
+        <a href="admin.html" class="nav-link">Admin Login</a>
+        <a href="checkout.html" class="nav-link nav-cta">Checkout</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-heading">
+      <div class="container">
+        <h1 data-animate="fade-up">Our Hot Chips &amp; Snacks</h1>
+        <p data-animate="fade-up" data-animate-delay="100">
+          Choose from our signature range of crispy, golden snacks – freshly made just for you.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="products-toolbar">
+          <div>
+            <span class="pill pill-soft">100% Freshly Prepared</span>
+          </div>
+          <div class="cart-shortcut">
+            <a href="cart.html" class="btn btn-secondary">
+              View Cart
+              <span class="cart-count-badge">0</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="category-filters" id="category-filters" data-animate="fade-up">
+          <button class="filter-btn active" data-category="All">All</button>
+          <button class="filter-btn" data-category="Chips">Chips</button>
+          <button class="filter-btn" data-category="Fryums">Fryums</button>
+          <button class="filter-btn" data-category="Murukku">Murukku</button>
+          <button class="filter-btn" data-category="Mixture">Mixture</button>
+          <button class="filter-btn" data-category="Sweets">Sweets</button>
+          <button class="filter-btn" data-category="Biscuit">Biscuits</button>
+          <button class="filter-btn" data-category="Rusk">Rusk</button>
+          <button class="filter-btn" data-category="Evening">Evening Specials</button>
+          <button class="filter-btn" data-category="others">Others</button>
+        </div>
+
+        <div class="product-grid" id="product-list" data-animate="fade-up">
+          <!-- Product cards injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>SRI BALAJI HOT CHIPS</h4>
+        <p>Fresh, quality and tasty hot chips &amp; snacks for every occasion.</p>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <h5>Quick Links</h5>
+          <a href="products.html">Products</a>
+          <a href="cart.html">Cart</a>
+          <a href="checkout.html">Checkout</a>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <p>Phone: <a href="tel:+917667052277">+91 7667052277</a></p>
+          <p>No.1,srinivasa perumal kovil,Rajendra nagar,Keelkatalai,Chennai,Tamil Nadu 600117</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Sri Balaji Hot Chips. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

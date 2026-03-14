@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart | SRI BALAJI HOT CHIPS</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-cart">
+    <canvas id="bg-particles"></canvas>
+    <header class="site-header glass">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <img src="images/logo.png" alt="Sri Balaji Hot Chips Logo" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-title">SRI BALAJI HOT CHIPS</span>
+            <span class="brand-tagline">FRESH | QUALITY | TASTY</span>
+          </div>
+        </a>
+        <nav class="main-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="products.html" class="nav-link">Products</a>
+            <a href="cart.html" class="nav-link active">
+            Cart
+            <span class="cart-count-badge">0</span>
+          </a>
+          <a href="admin.html" class="nav-link">Admin Login</a>
+          <a href="checkout.html" class="nav-link nav-cta">Checkout</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-heading">
+        <div class="container">
+          <h1 data-animate="fade-up">Your Cart</h1>
+          <p data-animate="fade-up" data-animate-delay="100">
+            Review your selections before checkout.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container cart-layout">
+          <div class="cart-items glass" id="cart-items" data-animate="fade-right">
+            <!-- Cart items injected via JavaScript -->
+          </div>
+          <aside class="cart-summary glass" data-animate="fade-left">
+            <h2>Order Summary</h2>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span>₹<span id="cart-subtotal">0</span></span>
+            </div>
+            <div class="summary-row">
+              <span>Packaging Charge</span>
+              <span>₹<span id="cart-packaging">0</span></span>
+            </div>
+            
+            <div class="field field-compact">
+              <label for="cart-distance">Distance (km)</label>
+              <div class="input-row">
+                <input
+                  type="number"
+                  id="cart-distance"
+                  min="0"
+                  step="0.1"
+                  placeholder="Eg. 3.5"
+                  inputmode="decimal"
+                />
+                <button type="button" class="btn btn-secondary btn-mini" id="cart-use-gps">
+                  Use GPS
+                </button>
+              </div>
+              <div class="helper-text">Delivery charge: ₹10 per km (rounded up)</div>
+            </div>
+            <div class="summary-row">
+              <span>Delivery Charge</span>
+              <span>₹<span id="cart-delivery">0</span></span>
+            </div>
+            <div class="summary-row summary-total">
+              <span>Total</span>
+              <span>₹<span id="cart-total">0</span></span>
+            </div>
+            <button id="clear-cart" class="btn btn-ghost full-width">Clear Cart</button>
+            <a href="checkout.html" class="btn btn-primary glow full-width" id="proceed-checkout">
+              Proceed to Checkout
+            </a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <h4>SRI BALAJI HOT CHIPS</h4>
+          <p>Fresh, quality and tasty hot chips &amp; snacks for every occasion.</p>
+        </div>
+        <div class="footer-grid">
+          <div>
+            <h5>Quick Links</h5>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="checkout.html">Checkout</a>
+          </div>
+          <div>
+            <h5>Contact</h5>
+            <p>Phone: <a href="tel:+917667052277">+91 7667052277</a></p>
+            <p>No.1,srinivasa perumal kovil,Rajendra nagar,Keelkatalai,Chennai,Tamil Nadu 600117</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Sri Balaji Hot Chips. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
+
